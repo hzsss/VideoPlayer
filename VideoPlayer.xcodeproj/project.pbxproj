@@ -15,6 +15,7 @@
 		3E137F46224397BF003F2424 /* VideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E137F45224397BF003F2424 /* VideoPlayerTests.swift */; };
 		3E137F51224397BF003F2424 /* VideoPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E137F50224397BF003F2424 /* VideoPlayerUITests.swift */; };
 		3E137F60224397DD003F2424 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E137F5F224397DD003F2424 /* AVFoundation.framework */; };
+		3E4A5AD92244904E00D7BD61 /* HZSVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A5AD82244904E00D7BD61 /* HZSVideoPlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3E137F50224397BF003F2424 /* VideoPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerUITests.swift; sourceTree = "<group>"; };
 		3E137F52224397BF003F2424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E137F5F224397DD003F2424 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3E4A5AD82244904E00D7BD61 /* HZSVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HZSVideoPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				3E137F37224397BE003F2424 /* Assets.xcassets */,
 				3E137F39224397BE003F2424 /* LaunchScreen.storyboard */,
 				3E137F3C224397BE003F2424 /* Info.plist */,
+				3E4A5AD82244904E00D7BD61 /* HZSVideoPlayerView.swift */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E137F33224397B4003F2424 /* ViewController.swift in Sources */,
+				3E4A5AD92244904E00D7BD61 /* HZSVideoPlayerView.swift in Sources */,
 				3E137F31224397B4003F2424 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
