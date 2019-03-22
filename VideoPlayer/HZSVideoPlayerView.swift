@@ -113,7 +113,6 @@ extension HZSVideoPlayerView { // 全屏手势
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch: UITouch = touches.first, let player = player, let playerItem = playerItem else { return }
         
-//        let preLocation = touch.preciseLocation(in: self)
         let location = touch.location(in: self)
         
         let currentTime = CMTimeGetSeconds(player.currentTime())
