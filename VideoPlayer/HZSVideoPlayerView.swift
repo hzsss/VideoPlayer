@@ -19,6 +19,7 @@ import AVFoundation
 class HZSVideoPlayerView: UIView {
     
     var beginLocation: CGPoint = .zero
+    var isFullScreen: Bool = false
     
     var playerItem: AVPlayerItem?
     var player: AVPlayer?
@@ -48,6 +49,7 @@ class HZSVideoPlayerView: UIView {
         fullScreenBtn.setTitle("全屏", for: .normal)
         fullScreenBtn.backgroundColor = .red
         fullScreenBtn.addTarget(self, action: #selector(fullScreenPlay), for: .touchUpInside)
+        addSubview(fullScreenBtn)
         
         progressView.progressTintColor = .blue
         addSubview(progressView)
@@ -76,11 +78,12 @@ class HZSVideoPlayerView: UIView {
         }
         
         let padding: CGFloat = 10.0
-        let playBtnSize: CGFloat = 44.0
-        playBtn.frame = CGRect(x: padding, y: bounds.height - padding - playBtnSize, width: playBtnSize, height: playBtnSize)
+        let btnSize: CGFloat = 44.0
+        playBtn.frame = CGRect(x: padding, y: bounds.height - padding - btnSize, width: btnSize, height: btnSize)
+        fullScreenBtn.frame = CGRect(x: padding, y: padding, width: btnSize, height: btnSize)
         
         let progressViewX: CGFloat = playBtn.frame.maxX + padding
-        let progressViewY: CGFloat = bounds.height - padding - playBtnSize / 2
+        let progressViewY: CGFloat = bounds.height - padding - btnSize / 2
         let progressViewWidth: CGFloat = bounds.width - progressViewX - padding
         progressView.frame = CGRect(x: progressViewX, y: progressViewY, width: progressViewWidth, height: 2)
     }
@@ -98,7 +101,10 @@ class HZSVideoPlayerView: UIView {
     }
     
     @objc func fullScreenPlay() { // 切换横竖屏，待定
+        isFullScreen = !isFullScreen
+        UIDevice.current.setValue(NSNumber(value: isFullScreen ? UIInterfaceOrientation.landscapeRight.rawValue : UIInterfaceOrientation.portrait.rawValue), forKey: "orientation")
         
+        superview?.layoutIfNeeded()
     }
 }
 

@@ -26,8 +26,8 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         let width: CGFloat = view.bounds.width
-        let height: CGFloat = view.bounds.width * 3 / 4
-        videoView.frame = CGRect(x: 0, y: 40, width: width, height: height)
+        let height: CGFloat = view.bounds.height
+        videoView.frame = CGRect(x: 0, y: 0, width: width, height: height)
     }
 }
 
