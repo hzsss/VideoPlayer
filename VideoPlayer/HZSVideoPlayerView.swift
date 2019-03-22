@@ -111,18 +111,22 @@ extension HZSVideoPlayerView { // 全屏手势
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch: UITouch = touches.first, let player = player, let playerItem = playerItem else { return }
-        
+        guard let touch: UITouch = touches.first, let player = player else { return }
+
         let location = touch.location(in: self)
-        
+
+        print("beginLocationX: \(beginLocation.x) \n locationX : \(location.x)")
         let currentTime = CMTimeGetSeconds(player.currentTime())
-        let duration = CMTimeGetSeconds(playerItem.duration)
-        let changeTime = (location.x - beginLocation.x) / bounds.width * CGFloat(duration)
+        let changeTime = (location.x - beginLocation.x) * 30 / bounds.width
         let interval = CMTime(seconds: Double(CGFloat(currentTime) + changeTime), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        
+
         print("changeTime:\(changeTime) \n interval:\(CMTimeGetSeconds(interval))")
-        player.seek(to: interval) { _ in
-            player.play()
-        }
+        player.seek(to: interval)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let player = player else { return }
+        
+        player.play()
     }
 }
